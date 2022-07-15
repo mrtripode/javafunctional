@@ -1,12 +1,17 @@
 package es.mikostrategy.streams;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static es.mikostrategy.streams._Stream.Gender.FEMALE;
 import static es.mikostrategy.streams._Stream.Gender.MALE;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class _Stream {
+
+    private static final Logger log = LogManager.getLogger(_Stream.class);
    
     public static void main(String[] args) {
         List<Person> people = List.of(
@@ -33,8 +38,8 @@ public class _Stream {
         boolean onlyFemalePeopleV2 = people.stream()
             .noneMatch(p -> FEMALE.equals(p.gender));
 
-        System.out.println(onlyFemalePeople);
-        System.out.println(onlyFemalePeopleV2);
+        log.info(onlyFemalePeople);
+        log.info(onlyFemalePeopleV2);
     }
 
     private static class Person {

@@ -3,25 +3,30 @@ package es.mikostrategy.functionalinterface;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class _Function {
+
+    private static final Logger log = LogManager.getLogger(_Function.class);
 
     public static void main(String[] args) {
         // Function example: takes 1 args and return one value
         int inc = incrementByOne(1);
-        System.out.println(inc);
+        log.info(inc);
 
         int inc2  = incrementByOneFunction.apply(1);
-        System.out.println(inc2);
+        log.info(inc2);
 
         int multiply = multiplyBy10Function.apply(2);
-        System.out.println(multiply);
+        log.info(multiply);
 
         int incrBy1AndThenMultiplyBy10 = addBy1AndThenMultiplyBy10.apply(4);
-        System.out.println(incrBy1AndThenMultiplyBy10);
+        log.info(incrBy1AndThenMultiplyBy10);
 
         // BiFunction example: takes 2 values and return one value
-        System.out.println(incrementByOneAndThenMultiply(4, 10));
-        System.out.println(incrementByOneAndThenMultiplyBiFunction.apply(4, 10));
+        log.info(incrementByOneAndThenMultiply(4, 10));
+        log.info(incrementByOneAndThenMultiplyBiFunction.apply(4, 10));
     }
 
     // Normal Java function

@@ -1,9 +1,14 @@
 package es.mikostrategy.functionalinterface;
 
-import java.util.function.Consumer;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class _Consumer {
+
+    private static final Logger log = LogManager.getLogger(_Consumer.class);
 
     public static void main(String[] args) {
         Customer maria = new Customer("Maria", "99999");
@@ -17,7 +22,7 @@ public class _Consumer {
     }
 
     protected static void greetCustomer(Customer customer) {
-        System.out.println("Hello "
+        log.info("Hello "
                  + customer.custmerName
                  + ", thanks for registering phone number \""
                  + customer.custmerPhoneNumber
@@ -25,7 +30,7 @@ public class _Consumer {
     }
 
     protected static void greetCustomerV2(Customer customer, boolean showPhoneNumber) {
-        System.out.println("Hello "
+        log.info("Hello "
                  + customer.custmerName
                  + ", thanks for registering phone number \""
                  + (Boolean.TRUE.equals(showPhoneNumber) ? customer.custmerPhoneNumber : "*****")
@@ -34,7 +39,7 @@ public class _Consumer {
     }
 
     protected static Consumer<Customer> greetCustomerConsumer = customer -> {
-        System.out.println("Hello "
+        log.info("Hello "
             + customer.custmerName
             + ", thanks for registering phone number \""
             + customer.custmerPhoneNumber
@@ -43,7 +48,7 @@ public class _Consumer {
     };
 
     protected static BiConsumer<Customer, Boolean> greetCustomerConsumerV2 = (customer, showPhoneNumber) -> {
-        System.out.println("Hello "
+        log.info("Hello "
             + customer.custmerName
             + ", thanks for registering phone number \""
             + (Boolean.TRUE.equals(showPhoneNumber) ? customer.custmerPhoneNumber : "*****")

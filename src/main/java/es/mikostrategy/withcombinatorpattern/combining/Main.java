@@ -4,9 +4,14 @@ import static es.mikostrategy.withcombinatorpattern.combining.CustomerRegistrati
 
 import java.time.LocalDate;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import es.mikostrategy.withcombinatorpattern.combining.CustomerRegistrationValidator.ValidationResult;
 
 public class Main {
+
+    private static final Logger log = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
         Customer customer = new Customer(
@@ -22,7 +27,7 @@ public class Main {
                 .and(CustomerRegistrationValidator.isAdult())
                 .apply(customer);
 
-        System.out.println(result);
+        log.info(result);
 
         if (result != ValidationResult.SUCCESS) {
             throw new IllegalArgumentException(result.name());
