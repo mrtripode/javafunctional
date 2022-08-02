@@ -22,10 +22,10 @@ public class CustomerValidatorService {
     }
 
     public boolean isValid(Customer customer) {
-        return isNameValid(customer.getName())
-            && isEmailValid(customer.getEmail())
-            && isPhoneNumberValid(customer.getPhoneNumber())
-            && isAdult(customer.getDateOfBirth());
+        return isNameValid(customer.name())
+            && isEmailValid(customer.email())
+            && isPhoneNumberValid(customer.phoneNumber())
+            && isAdult(customer.dateOfBirth());
     }
 
 }

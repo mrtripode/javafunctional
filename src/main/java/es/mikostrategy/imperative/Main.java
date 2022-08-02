@@ -12,21 +12,19 @@ import org.apache.logging.log4j.Logger;
 
 public class Main {
 
-    private static Logger log = LogManager.getLogger(Main.class);
+    private static final Logger LOG = LogManager.getLogger(Main.class);
     
     public static void main( String[] args ) {
         List<Person> people = List.of(
-            new Person("John", Gender.MALE),
-            new Person("Maria", Gender.FEMALE),
-            new Person("Aisha", Gender.FEMALE),
-            new Person("Alex", Gender.MALE),
-            new Person("Alice", Gender.FEMALE)
+            new Person("Andres", Gender.MALE),
+            new Person("Marta", Gender.FEMALE),
+            new Person("Teresa", Gender.FEMALE),
+            new Person("Javier", Gender.MALE),
+            new Person("Julia", Gender.FEMALE)
         );
 
-        // Imperative approach
-        log.debug("// Imperative approach");
-        System.out.println("// Imperative approach");
-        List<Person> females = new ArrayList<>();  
+        LOG.info(">> Imperative approach");
+        List<Person> females = new ArrayList<>();
 
         for (Person person : people) {
             if (FEMALE.equals(person.gender)) {
@@ -34,51 +32,39 @@ public class Main {
             }
         }
 
-        log.debug(females);
+        LOG.debug(females);
         for (Person female : females) {
-            System.out.println(female);
+            LOG.info(female);
         }
 
-        // Declarative approach
-        log.debug("// Declarative approach");
-        System.out.println("// Declarative approach");
-//        Predicate<Person> pPerson = person -> FEMALE.equals(person.gender);
-//        people.stream()
-//            .filter(pPerson)
-//            .map(person -> person.name)
-//            .forEach(System.out::println);
+        LOG.info(">> Declarative approach");
+        Predicate<Person> pPerson = person -> FEMALE.equals(person.gender);
+        people.stream()
+                .filter(pPerson)
+                .map(person -> person.name)
+                .forEach(LOG::info);
 
         people.stream()
-            .filter(person -> FEMALE.equals(person.gender))
-            .forEach(System.out::println);
+                .filter(person -> FEMALE.equals(person.gender))
+                .forEach(LOG::info);
 
         Function<Person, Void> printName = person -> {
-            System.out.println(person.name);
+            LOG.info(person.name);
             return null;
         };
 
-        System.out.println("// Lambda approach");
+        LOG.info(">> Lambda approach");
         people.stream()
-            .filter(person -> FEMALE.equals(person.gender))
-            .forEach(person -> {
-            printName.apply(person);
-        });
+                .filter(person -> FEMALE.equals(person.gender))
+                .forEach(printName::apply);
     
-        System.out.println("// Reference approach");
+        LOG.info(">> Reference approach");
         people.stream()
-        .filter(person -> FEMALE.equals(person.gender))
-        .forEach(printName::apply);
+                .filter(person -> FEMALE.equals(person.gender))
+                .forEach(printName::apply);
     }
 
-    private static class Person {
-
-        private final String name;
-        private final Gender gender;
-
-        public Person(String name, Gender gender) {
-            this.name = name;
-            this.gender = gender;
-        }
+    private static record Person(String name, Gender gender) {
 
         @Override
         public String toString() {
@@ -86,7 +72,7 @@ public class Main {
         }   
 
     }
-    
+
     enum Gender {
         MALE, FEMALE;
     }

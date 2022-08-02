@@ -11,11 +11,12 @@ public class Main {
 
     public static void main(String[] args) {
         Customer customer = new Customer(
-            "Alice",
-            "alice@gmail.com",
+            "Arnol",
+            "arnol@gmail.com",
             "+34990399934",
             LocalDate.of(2005, 1, 21));
 
         log.info(new CustomerValidatorService().isValid(customer));
     }
+
 }

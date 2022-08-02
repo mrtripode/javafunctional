@@ -15,7 +15,7 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
     
     public static CustomerRegistrationValidator isNameValid() {
         return customer -> {
-            if (customer.getName().length() < 20) {
+            if (customer.name().length() < 20) {
                 return ValidationResult.SUCCESS;
             } else {
                 return ValidationResult.NAME_NOT_VALID;
@@ -24,15 +24,15 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
     }
 
     public static CustomerRegistrationValidator isEmailValid() {
-        return customer -> customer.getEmail().contains("@") ? SUCCESS : EMAIL_NOT_VALID;
+        return customer -> customer.email().contains("@") ? SUCCESS : EMAIL_NOT_VALID;
     }
 
     public static CustomerRegistrationValidator isPhoneNumberValid() {
-        return customer -> customer.getPhoneNumber().startsWith("+34") ? SUCCESS : PHONE_NUMBER_NOT_VALID;
+        return customer -> customer.phoneNumber().startsWith("+34") ? SUCCESS : PHONE_NUMBER_NOT_VALID;
     }
 
     public static CustomerRegistrationValidator isAdult() {
-        return customer -> Period.between(customer.getDateOfBirth(), LocalDate.now()).getYears() > 16 ? SUCCESS : IS_NOT_AND_ADULT;
+        return customer -> Period.between(customer.dateOfBirth(), LocalDate.now()).getYears() > 16 ? SUCCESS : IS_NOT_AND_ADULT;
     }
 
     default CustomerRegistrationValidator and(CustomerRegistrationValidator other) {

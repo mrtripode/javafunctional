@@ -1,7 +1,7 @@
 package es.mikostrategy.streams;
 
-import static es.mikostrategy.streams._Stream.Gender.FEMALE;
-import static es.mikostrategy.streams._Stream.Gender.MALE;
+import static es.mikostrategy.streams.MyStream.Gender.FEMALE;
+import static es.mikostrategy.streams.MyStream.Gender.MALE;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,10 +9,10 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class _Stream {
+public class MyStream {
 
-    private static final Logger log = LogManager.getLogger(_Stream.class);
-   
+    private static final Logger LOG = LogManager.getLogger(MyStream.class);
+
     public static void main(String[] args) {
         List<Person> people = List.of(
             new Person("John", MALE),
@@ -23,23 +23,23 @@ public class _Stream {
         );
 
         people.stream()
-            .map(p -> p.gender)
-            .collect(Collectors.toSet())
-            .forEach(System.out::println);
+                .map(p -> p.gender)
+                .collect(Collectors.toSet())
+                .forEach(LOG::info);
 
         people.stream()
-            .map(p -> p.name)
-            .mapToInt(String::length)
-            .forEach(System.out::println);
+                .map(p -> p.name)
+                .mapToInt(String::length)
+                .forEach(LOG::info);
 
         boolean onlyFemalePeople = people.stream()
-            .allMatch(p -> FEMALE.equals(p.gender));
+                .allMatch(p -> FEMALE.equals(p.gender));
 
         boolean onlyFemalePeopleV2 = people.stream()
-            .noneMatch(p -> FEMALE.equals(p.gender));
+                .noneMatch(p -> FEMALE.equals(p.gender));
 
-        log.info(onlyFemalePeople);
-        log.info(onlyFemalePeopleV2);
+        LOG.info(onlyFemalePeople);
+        LOG.info(onlyFemalePeopleV2);
     }
 
     private static class Person {
@@ -58,7 +58,7 @@ public class _Stream {
         }   
 
     }
-    
+
     protected enum Gender {
         MALE, FEMALE;
     } 

@@ -1,0 +1,91 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Callbacks",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.finalsection.Callbacks",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lambdas",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.finalsection.Lambdas",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyConsumer",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.functionalinterface.MyConsumer",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyFunction",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.functionalinterface.MyFunction",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyPredicate",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.functionalinterface.MyPredicate",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch MySupplier",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.functionalinterface.MySupplier",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.imperative.Main",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyOptional",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.optionals.MyOptional",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyStream",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.streams.MyStream",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(1)",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.withcombinatorpattern.combining.Main",
+            "projectName": "javafunctional"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(2)",
+            "request": "launch",
+            "mainClass": "es.mikostrategy.withcombinatorpattern.normal.Main",
+            "projectName": "javafunctional"
+        }
+    ]
+}
