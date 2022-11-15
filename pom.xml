@@ -17,6 +17,8 @@
     <maven.compiler.target>17</maven.compiler.target>
     <java.version>17</java.version>
     <log4j.version>2.18.0</log4j.version>
+    <sonar.organization>mikostrategy</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
 
   <dependencies>
